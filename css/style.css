@@ -281,10 +281,6 @@ section + section { border-top: 1px solid var(--border); }
 
 /* --- About --------------------------------------------------------------- */
 .about p { font-size: 1.05rem; }
-/* This section has no description line under its heading, so the shared
-   section-head margin opens a gap the eye reads as a mistake. */
-.about .section-head { margin-bottom: 1rem; }
-.about .section-head h2 { margin-bottom: 0; }
 
 /* --- Project page -------------------------------------------------------- */
 .backlink {
