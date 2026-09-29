@@ -185,14 +185,11 @@ section + section { border-top: 1px solid var(--border); }
 }
 .hero .tagline strong { color: var(--text); font-weight: 600; }
 .credential {
-  display: flex; flex-wrap: wrap; gap: .4rem .9rem;
+  display: flex; flex-wrap: wrap; gap: .3rem 1.6rem;
   font-size: .92rem; color: var(--text-mute); margin: 0;
   list-style: none; padding: 0;
 }
-.credential li { max-width: none; display: flex; align-items: center; gap: .9rem; }
-/* Separator sits AFTER each item except the last, so a wrapped line never starts
-   with a stray dot. */
-.credential li:not(:last-child)::after { content: "·"; color: var(--border-str); }
+.credential li { max-width: none; }
 
 .portrait {
   border-radius: var(--r); border: 1px solid var(--border);
