@@ -226,6 +226,25 @@ section + section { border-top: 1px solid var(--border); }
 .card { position: relative; }
 .card h3 a::after { content: ""; position: absolute; inset: 0; }
 
+/* --- Scope badges ---------------------------------------------------------
+   Solo vs team vs coursework. Solo carries the accent because it is the one
+   a reader is most likely to be looking for; the others stay neutral so the
+   set doesn't read as a ranking. */
+.tag {
+  /* align-self matters: the card body is a flex column, which would otherwise
+     stretch the badge to full width and make it read as a bar, not a pill. */
+  display: inline-block; align-self: flex-start;
+  margin: 0 0 .55rem; max-width: none;
+  font: 650 .68rem/1 var(--font); letter-spacing: .1em; text-transform: uppercase;
+  padding: .34rem .6rem; border-radius: 5px;
+  border: 1px solid var(--border-str); color: var(--text-mute); background: var(--bg-sunken);
+}
+.tag-solo {
+  color: var(--accent); background: var(--accent-bg);
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+}
+.project-head .tag { margin-bottom: .9rem; }
+
 /* --- Chips --------------------------------------------------------------- */
 .chips { display: flex; flex-wrap: wrap; gap: .35rem; list-style: none; padding: 0; margin: 0; }
 .chips li {
