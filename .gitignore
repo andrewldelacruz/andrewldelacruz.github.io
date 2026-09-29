@@ -1,0 +1,5 @@
+.DS_Store
+Thumbs.db
+
+# Local preview config for Claude Code, not part of the site
+.claude/

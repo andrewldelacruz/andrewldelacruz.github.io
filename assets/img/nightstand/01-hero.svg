@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900"
+     role="img" aria-label="Placeholder: Nightstand — hero">
+  <style>
+    .bg { fill: #eceae4; }
+    .fr { fill: none; stroke: #c9c5b9; stroke-width: 5; stroke-dasharray: 40 27; }
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; text-anchor: middle; }
+    .l { font-size: 50px; font-weight: 650; fill: #6b665a; letter-spacing: -0.01em; }
+    .s { font-size: 31px; fill: #8d887a; }
+    .t { font-size: 25px; font-weight: 600; fill: #b0aa9a; letter-spacing: 0.14em; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #201f19; } .fr { stroke: #3b392f; }
+      .l { fill: #8e8878; } .s { fill: #6e6a5d; } .t { fill: #4e4b40; }
+    }
+  </style>
+  <rect class="bg" width="1600" height="900"/>
+  <rect class="fr" x="32" y="32"
+        width="1537" height="837" rx="22"/>
+  <text x="800" y="375" class="l">Nightstand — hero</text>
+    <text x="800" y="450" class="s">The hub on the window sill, both displays lit and legible. LinkedIn preview image.</text>
+  <text x="800" y="832" class="t">PHOTO NEEDED</text>
+</svg>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrew DeLaCruz — Mechanical Engineering, UC Davis</title>
+<meta name="description" content="Mechanical engineering student at UC Davis building mechatronic systems — the enclosure, the electronics, and the code that runs inside them. Calibration and test engineering intern. Seeking a Summer 2027 ME internship in the Bay Area.">
+<link rel="canonical" href="https://andrewldelacruz.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andrewldelacruz.github.io/">
+<meta property="og:title" content="Andrew DeLaCruz — Mechanical Engineering, UC Davis">
+<meta property="og:description" content="Mechatronics-focused ME student: SolidWorks enclosures, 3D printing and DFM, ESP32 and Raspberry Pi firmware, Python/OpenCV. Calibration and test engineering intern.">
+<meta property="og:image" content="https://andrewldelacruz.github.io/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Andrew DeLaCruz <span>· ME</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="assets/resume.pdf">Résumé&nbsp;(PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Mechanical Engineering · UC Davis '29</p>
+        <h1>Andrew DeLaCruz</h1>
+        <p class="tagline">
+          I build the <strong>mechanical side</strong> and the <strong>electronics and code
+          that go inside it</strong> — enclosures designed around the hardware they house,
+          then wired, flashed, and debugged on the bench.
+        </p>
+        <ul class="credential">
+          <li>Davis &amp; San Jose, CA</li>
+          <li>Calibration &amp; test engineering intern</li>
+          <li>Seeking Summer 2027 ME internship</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="assets/resume.pdf">Résumé (PDF)</a>
+          <a class="btn" href="mailto:aldelacruz@ucdavis.edu">aldelacruz@ucdavis.edu</a>
+          <a class="btn" href="https://www.linkedin.com/in/andrew-delacruz/">LinkedIn</a>
+        </div>
+      </div>
+      <img class="portrait" src="assets/img/headshot.jpg"
+           data-placeholder="assets/img/headshot.svg"
+           alt="Portrait of Andrew DeLaCruz" width="440" height="440">
+    </div>
+  </section>
+
+  <!-- ======================= PROJECTS ======================= -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects</h2>
+        <p>Three builds where I owned both the mechanical design and the software running on it.</p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <img class="card-img" src="assets/img/flashback/01-hero.jpg"
+               data-placeholder="assets/img/flashback/01-hero.svg"
+               alt="The FlashBack photo booth assembled, with its mast extended"
+               loading="lazy" width="800" height="500">
+          <div class="card-body">
+            <h3><a href="projects/flashback.html">FlashBack: 270° Panoramic Photo Booth</a></h3>
+            <p class="metric">16 frames → one 270° panorama, printed on the spot</p>
+            <p class="hook">
+              A battery-powered booth that rotates on a servo turntable, stitches a panorama in
+              OpenCV, and prints it as a physical keepsake. I redesigned the load path onto a ball
+              bearing and built the stitching pipeline and touchscreen UI.
+            </p>
+            <ul class="chips">
+              <li>SolidWorks</li><li>Python</li><li>OpenCV</li><li>Raspberry Pi</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-img" src="assets/img/nightstand/01-hero.jpg"
+               data-placeholder="assets/img/nightstand/01-hero.svg"
+               alt="The Smart Nightstand Hub on a window sill, both displays lit"
+               loading="lazy" width="800" height="500">
+          <div class="card-body">
+            <h3><a href="projects/nightstand-hub.html">Smart Nightstand Hub</a></h3>
+            <p class="metric">$24.79 in parts · working fit in 2 print iterations</p>
+            <p class="hook">
+              A bedside display for weather, calendar, and live bus times, built to cut my phone
+              dependence. Adhesive-free press-fit enclosure designed around the boards inside it,
+              with the temperature sensor thermally isolated from the electronics.
+            </p>
+            <ul class="chips">
+              <li>SolidWorks</li><li>FDM 3D printing</li><li>DFM</li><li>ESP32</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-img" src="assets/img/fold-or-roll/01-hero.jpg"
+               data-placeholder="assets/img/fold-or-roll/01-hero.svg"
+               alt="The Fold or Roll game screen from Player 1's view, mid-round"
+               loading="lazy" width="800" height="500">
+          <div class="card-body">
+            <h3><a href="projects/fold-or-roll.html">Fold or Roll: Networked Dice Game</a></h3>
+            <p class="metric">Two computers synced at ~1 Hz over an IoT REST API</p>
+            <p class="hook">
+              A two-player MATLAB game kept in sync across separate machines using ThingSpeak as a
+              shared database. I designed the networking, the turn gating, and a compressed data
+              format that keeps each player's dice private until showdown.
+            </p>
+            <ul class="chips">
+              <li>MATLAB</li><li>App Designer</li><li>REST APIs</li><li>JSON</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= EXPERIENCE ======================= -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where I've worked</p>
+        <h2>Experience</h2>
+      </div>
+
+      <div class="roles">
+
+        <article class="role">
+          <div class="role-head">
+            <h3>Calibration &amp; Test Engineering Intern</h3>
+            <p class="when">May 2025 – Sept 2026</p>
+          </div>
+          <p class="where">Cogwell, Inc. — Santa Clara, CA · Summers 2025 &amp; 2026</p>
+          <ul>
+            <li>Developed automated calibration procedures in <strong>Fluke MET/CAL</strong> and Python
+              test scripts for 9 instrument models, including Keysight spectrum analyzers, Fluke
+              calibrators, and Tektronix oscilloscopes.</li>
+            <li>Performed <strong>root cause analysis of PCB faults</strong> using schematics, and
+              repaired boards through soldering and desoldering.</li>
+            <li>Executed <strong>verification and validation (V&amp;V)</strong> procedures against
+              calibration standards using multimeters, oscilloscopes, spectrum analyzers, and
+              signal generators.</li>
+            <li>Calibrated <strong>30+ precision instruments</strong> to SOPs and documented results
+              in calibration reports.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <h3>Engineering Intern — EECS &amp; Mechanical</h3>
+            <p class="when">Spring 2026</p>
+          </div>
+          <p class="where">DUEN — Davis, CA</p>
+          <ul>
+            <li>Selected for DUEN's Spring 2026 intern cohort: a 22-person team designing and
+              building a product that solves a real problem for UC Davis students in six weeks.</li>
+            <li>Core contributor on the EECS subteam and the team's
+              <strong>mechanical–software liaison</strong>, deciding how the electronics packaged
+              into the chassis and how mechanical choices affected image quality.</li>
+            <li>Led development of the <strong>computer vision stitching pipeline</strong> and the
+              touchscreen UI, and contributed the bearing-supported base and counterweight system
+              on the mechanical side.</li>
+            <li>Presented the EECS portion of the final product presentation and wrote technical
+              reports throughout the build; guided documentation content for the project website,
+              user manual, and build timeline.</li>
+            <li>Helped raise <strong>$660</strong> through team fundraisers and volunteered at
+              Pleasant Creek and the Whole Earth Festival.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <h3>B.S. Mechanical Engineering</h3>
+            <p class="when">Expected June 2029</p>
+          </div>
+          <p class="where">University of California, Davis — GPA 3.30 / 4.00</p>
+          <ul>
+            <li>Relevant coursework: Statics, Thermodynamics, Properties of Materials,
+              Circuits I, Engineering Graphics.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SKILLS ======================= -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Toolset</p>
+        <h2>Technical skills</h2>
+      </div>
+      <dl class="skills">
+        <div>
+          <dt>CAD &amp; Fabrication</dt>
+          <dd>SolidWorks · Engineering drawings · Design for manufacturability (DFM) ·
+              Tolerancing · FDM 3D printing · Heat-set inserts · Soldering ·
+              Precision measurement (calipers) · Mechanical assembly</dd>
+        </div>
+        <div>
+          <dt>Programming</dt>
+          <dd>Python · MATLAB &amp; App Designer · C++ (Arduino/ESP32) · OpenCV · NumPy ·
+              Pillow · Tkinter · Fluke MET/CAL · REST APIs · Git &amp; GitHub · Linux ·
+              Claude Code (AI-assisted development)</dd>
+        </div>
+        <div>
+          <dt>Electronics &amp; Test Equipment</dt>
+          <dd>Oscilloscopes · Spectrum analyzers · Multimeters · Signal generators ·
+              PCB rework · ESP32 · Raspberry Pi · PWM servo control · Buck converters ·
+              Power budgeting · GPIO &amp; sensor integration</dd>
+        </div>
+        <div>
+          <dt>Languages</dt>
+          <dd>English · Spanish</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ======================= ABOUT ======================= -->
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">About</p>
+        <h2>Hello</h2>
+      </div>
+      <p>
+        I'm a second-year mechanical engineering student at UC Davis. What I keep gravitating
+        toward is the seam between disciplines — the enclosure that has to fit the board, the
+        servo settle time that decides whether an image stitches, the sensor placement that
+        determines whether a reading means anything.
+      </p>
+      <p>
+        That's shaped how I work. On a 22-person team I ended up as the person translating between
+        the mechanical and EECS subteams, because I could tell whether a failure was mechanical,
+        electrical, or software before we started pulling things apart. At Cogwell I spent two
+        summers on the measurement side of that same instinct: calibrating precision instruments,
+        tracing PCB faults from schematics, and writing the automated procedures that verify them.
+      </p>
+      <p>
+        I use AI coding tools — mainly Claude Code — to move faster on firmware and prototyping.
+        I treat that as something I direct rather than something that does the work: I wire and
+        test every subsystem on real hardware, and I can walk through what the code does.
+      </p>
+      <p>
+        I'm looking for a <strong>Summer 2027 mechanical engineering internship</strong> in the
+        Bay Area, ideally somewhere mechanical design meets electronics — robotics, automation,
+        consumer hardware, or test engineering. The fastest way to reach me is
+        <a href="mailto:aldelacruz@ucdavis.edu">email</a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Andrew DeLaCruz · Built with plain HTML and CSS, hosted on GitHub Pages.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:aldelacruz@ucdavis.edu">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/andrew-delacruz/">LinkedIn</a></li>
+      <li><a href="https://github.com/andrewldelacruz">GitHub</a></li>
+      <li><a href="assets/resume.pdf">Résumé</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

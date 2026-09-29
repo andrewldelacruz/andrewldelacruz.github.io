@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Nightstand Hub — Andrew DeLaCruz</title>
+<meta name="description" content="A bedside display for weather, calendar, and live bus times in a $24.79 adhesive-free 3D-printed enclosure. SolidWorks design for manufacturability, ESP32 firmware, press-fit assembly with a working fit in two print iterations.">
+<link rel="canonical" href="https://andrewldelacruz.github.io/projects/nightstand-hub.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://andrewldelacruz.github.io/projects/nightstand-hub.html">
+<meta property="og:title" content="Smart Nightstand Hub">
+<meta property="og:description" content="Adhesive-free press-fit enclosure designed around the boards inside it. ESP32, two displays, thermally isolated sensor, $24.79 in parts, working fit in two print iterations.">
+<meta property="og:image" content="https://andrewldelacruz.github.io/assets/img/nightstand/01-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Andrew DeLaCruz <span>· ME</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="../#projects">Projects</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#skills">Skills</a>
+      <a href="../#about">About</a>
+      <a class="nav-cta" href="../assets/resume.pdf">Résumé&nbsp;(PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap project-head">
+    <a class="backlink" href="../#projects">&larr; All projects</a>
+    <p class="eyebrow">Solo project · Aug 2026 – present</p>
+    <h1>Smart Nightstand Hub</h1>
+    <p class="lede">
+      A bedside display for weather, calendar events, live bus times, and an alarm — with no apps
+      and no notifications to pull me back into my phone. Designed, printed, wired, and flashed
+      from scratch for $24.79 in parts.
+    </p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>Everything — solo build</dd></div>
+      <div><dt>Timeline</dt><dd>Aug 2026 – present</dd></div>
+      <div><dt>Enclosure</dt><dd>11 × 8 × 16 cm, three parts</dd></div>
+      <div><dt>Parts cost</dt><dd>$24.79</dd></div>
+      <div><dt>Tools</dt><dd>SolidWorks · FDM 3D printing · ESP32 · C++</dd></div>
+    </dl>
+
+    <figure class="hero-figure">
+      <img src="../assets/img/nightstand/01-hero.jpg"
+           data-placeholder="../assets/img/nightstand/01-hero.svg"
+           alt="The Smart Nightstand Hub on a window sill with both displays lit"
+           width="1600" height="900">
+      <figcaption>In daily use on the window sill it was sized to fit.</figcaption>
+    </figure>
+  </div>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>The problem</h2>
+      <p>
+        I was reaching for my phone first thing every morning for three things: the weather, my
+        schedule, and whether I had time to catch the bus. Each of those took ten seconds and cost
+        me twenty minutes, because the phone never gives you just the thing you asked for.
+      </p>
+      <p>
+        So I built a device that shows only those three things, has no notifications, and doubles as
+        my alarm clock. It had to be small enough to live on my window sill, cheap enough to justify
+        as a side project, and good enough that I'd actually keep using it.
+      </p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>What I did</h2>
+
+      <h3>Enclosure design</h3>
+      <ul>
+        <li><strong>Designed a compact three-part enclosure</strong> in SolidWorks — 11 × 8 × 16 cm —
+          to house two displays, an ESP32, a speaker, an audio amplifier, and an environmental
+          sensor, sized specifically to fit the window sill it lives on.</li>
+        <li><strong>Dimensioned every component with calipers</strong> and designed the housing
+          around the real measurements rather than datasheet nominals.</li>
+        <li><strong>Made the assembly adhesive-free</strong> using press fits, internal ledges, and
+          locating pegs. A snug-fitting roof locks a sliding back panel in place, so the whole thing
+          comes apart for service without cutting glue.</li>
+        <li><strong>Reached a working fit in two print iterations</strong> by applying design for
+          manufacturability and tolerancing — widening openings where tree supports couldn't be
+          removed safely, and accounting for the ±0.2 mm or so an FDM printer actually holds.</li>
+      </ul>
+
+      <h3>Thermal &amp; packaging decisions</h3>
+      <ul>
+        <li><strong>Thermally isolated the temperature sensor</strong> from the heat-generating
+          electronics using a tapered top and a rear-panel airflow path. A sensor sitting next to a
+          warm regulator reports the regulator's temperature, not the room's — this was the
+          difference between a reading that means something and a reading that doesn't.</li>
+        <li>Added ventilation, a USB-C port opening, and cutouts for both screens and the speaker,
+          positioned so the wiring inside could actually reach them.</li>
+      </ul>
+
+      <h3>Electronics &amp; debugging</h3>
+      <ul>
+        <li><strong>Soldered the power wiring</strong> to a buck converter and integrated the sensor,
+          both displays, and the audio amplifier.</li>
+        <li><strong>Traced a full display failure to a mis-held GPIO pin.</strong> The boot state of
+          that pin was holding a line low. I found it with pull-up/pull-down testing and a
+          multimeter, then rewired each display and the sensor onto a dedicated bus — which also
+          cleared a recurring intermittent connection fault.</li>
+      </ul>
+
+      <h3>Firmware</h3>
+      <ul>
+        <li>Developed the <strong>C++ firmware</strong> with AI-assisted tools (Claude Code),
+          integrating weather, calendar (iCal), and transit APIs into a two-screen interface with
+          an alarm.</li>
+        <li><strong>Validated each subsystem on the hardware</strong> — displays, sensor, audio,
+          network, alarm — and debugged the wiring faults that testing exposed. It's been running as
+          my daily alarm since.</li>
+      </ul>
+
+      <div class="callout">
+        <p class="eyebrow">On the AI-assisted part</p>
+        <p>
+          I used Claude Code to write the firmware, and I'm specific about what that means: my job
+          was the hardware. I wired and tested each subsystem, reported what I actually observed,
+          and tracked down the physical faults — including a pin the board was holding low, which no
+          amount of code review would have found. I can walk through what the firmware does.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>Design and build</h2>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img src="../assets/img/nightstand/02-cad-assembly.jpg"
+               data-placeholder="../assets/img/nightstand/02-cad-assembly.svg"
+               alt="SolidWorks model of the three-part enclosure"
+               loading="lazy" width="1200" height="900">
+          <figcaption>The SolidWorks model. Three parts: main body, roof, and sliding back panel.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/nightstand/03-internals.jpg"
+               data-placeholder="../assets/img/nightstand/03-internals.svg"
+               alt="Inside the enclosure showing the ESP32, wiring, and buck converter"
+               loading="lazy" width="1200" height="900">
+          <figcaption>Inside: ESP32, buck converter, speaker and amplifier, and the sensor placed
+            away from the heat sources.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/nightstand/04-press-fit.jpg"
+               data-placeholder="../assets/img/nightstand/04-press-fit.svg"
+               alt="Close-up of the press-fit ledges and locating pegs"
+               loading="lazy" width="1200" height="900">
+          <figcaption>Press fits, ledges, and locating pegs — no adhesive anywhere in the assembly.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/nightstand/05-print-iterations.jpg"
+               data-placeholder="../assets/img/nightstand/05-print-iterations.svg"
+               alt="First and second print iterations side by side"
+               loading="lazy" width="1200" height="900">
+          <figcaption>Iteration one beside iteration two. The changes were mostly clearances and
+            openings where supports couldn't be removed cleanly.</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="../assets/img/nightstand/06-gdt-drawing.jpg"
+               data-placeholder="../assets/img/nightstand/06-gdt-drawing.svg"
+               alt="GD&amp;T drawing of the enclosure, in progress"
+               loading="lazy" width="1600" height="900">
+          <figcaption>GD&amp;T drawings, currently in progress — defining the critical fits between
+            the roof, sliding panel, and main body.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>In progress <span class="note-wip">Active</span></h2>
+      <p>
+        I'm currently creating <strong>GD&amp;T drawings</strong> for the enclosure to properly
+        define the fits between the roof, the sliding panel, and the main body. The interesting
+        constraint is that FDM parts vary by roughly ±0.2 mm, so the callouts have to reflect what
+        the printer can actually hold rather than what the model says.
+      </p>
+
+      <h2>What I'd change</h2>
+      <p>
+        <strong>Fewer cables.</strong> The inside is messier than I want because I picked parts with
+        long pre-terminated leads. Higher-quality modules with fewer connections — or a small custom
+        PCB to replace the point-to-point wiring — would clean up the internal volume and remove
+        most of the intermittent-connection risk at the source instead of working around it.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Reference</p>
+        <h2>By the numbers</h2>
+      </div>
+      <div class="table-scroll">
+        <table class="numbers">
+          <tbody>
+            <tr><th scope="row">Enclosure size</th><td>11 × 8 × 16 cm</td></tr>
+            <tr><th scope="row">Enclosure parts</th><td>3 (body, roof, sliding panel)</td></tr>
+            <tr><th scope="row">Print iterations to working fit</th><td>2</td></tr>
+            <tr><th scope="row">Material</th><td>PLA, FDM</td></tr>
+            <tr><th scope="row">Assembly method</th><td>Press fit, ledges, locating pegs — no adhesive</td></tr>
+            <tr><th scope="row">Compute</th><td>ESP32</td></tr>
+            <tr><th scope="row">Displays</th><td>2</td></tr>
+            <tr><th scope="row">Data sources</th><td>Weather · iCal calendar · transit</td></tr>
+            <tr><th scope="row">Total parts cost</th><td>$24.79</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="pager">
+        <a href="fold-or-roll.html">
+          <p class="eyebrow">Next project</p>
+          <strong>Fold or Roll: Networked Dice Game</strong>
+        </a>
+        <a href="flashback.html">
+          <p class="eyebrow">Also</p>
+          <strong>FlashBack: 270° Panoramic Photo Booth</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Andrew DeLaCruz · Built with plain HTML and CSS, hosted on GitHub Pages.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:aldelacruz@ucdavis.edu">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/andrew-delacruz/">LinkedIn</a></li>
+      <li><a href="https://github.com/andrewldelacruz">GitHub</a></li>
+      <li><a href="../assets/resume.pdf">Résumé</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+# Photos still needed
+
+Every `<img>` on the site already points at the **final filename** below. A generated SVG
+placeholder stands in until the real photo exists, so **adding a photo is just dropping a
+correctly-named file into the right folder** — no HTML editing, and nothing ever looks broken.
+
+## How to add one
+
+1. Resize the photo to about **1600 px on its long edge** and save it as a JPG (quality ~80).
+   Aim to keep each file under ~300 KB so the page stays fast on a phone.
+2. Name it **exactly** as listed below, including the number prefix.
+3. Drop it into `assets/img/<folder>/`.
+4. Commit and push. That's it — the placeholder disappears on its own.
+5. Optionally tighten the caption in the HTML. Captions live in `<figcaption>` tags, so you
+   can reword them without touching any image.
+
+Delete the matching `.svg` once a real photo is in place (optional — it just stops being used).
+
+## Site-wide
+
+- [ ] **`assets/img/headshot.jpg`** — 440×440
+      Head-and-shoulders photo, neutral background. Reuse your LinkedIn profile picture.
+
+## FlashBack
+
+- [ ] **`assets/img/flashback/01-hero.jpg`** — 1600×900
+      The whole booth, assembled, mast extended. Plain background, good light. This is the LinkedIn preview image.
+
+- [ ] **`assets/img/flashback/02-panorama-print.jpg`** — 1200×900
+      A printed panorama in hand or coming off the printer. Show the physical keepsake.
+
+- [ ] **`assets/img/flashback/03-internals.jpg`** — 1200×900
+      Chassis open, showing Pi 4, battery, buck converters, fuse box, honeycomb shelf and wire routing.
+
+- [ ] **`assets/img/flashback/04-bearing-base.jpg`** — 1200×900
+      The rotating base / bearing ring. CAD screenshot works if you have no photo.
+
+- [ ] **`assets/img/flashback/05-ui.jpg`** — 1200×900
+      The Tkinter interface on the screen, live preview visible. A screenshot is fine.
+
+- [ ] **`assets/img/flashback/06-team.jpg`** — 1600×900
+      Team photo with the finished booth at an event. Pull from your LinkedIn post.
+
+## Smart Nightstand Hub
+
+- [ ] **`assets/img/nightstand/01-hero.jpg`** — 1600×900
+      The hub on the window sill, both displays lit and legible. LinkedIn preview image.
+
+- [ ] **`assets/img/nightstand/02-cad-assembly.jpg`** — 1200×900
+      SolidWorks screenshot of the three-part enclosure. CROP OR HIDE the stray plus/minus 0.01 dimensions.
+
+- [ ] **`assets/img/nightstand/03-internals.jpg`** — 1200×900
+      Back panel off: ESP32, buck converter, speaker, amp, and the sensor away from heat sources.
+
+- [ ] **`assets/img/nightstand/04-press-fit.jpg`** — 1200×900
+      Close-up of the ledges, locating pegs, or roof-to-panel fit. Macro shot or CAD detail view.
+
+- [ ] **`assets/img/nightstand/05-print-iterations.jpg`** — 1200×900
+      Print 1 beside print 2 so the clearance changes are visible.
+
+- [ ] **`assets/img/nightstand/06-gdt-drawing.jpg`** — 1600×900
+      The GD&T drawing sheet once finished. Replace the 'in progress' wording on the page when you add it.
+
+## Fold or Roll
+
+- [ ] **`assets/img/fold-or-roll/01-hero.jpg`** — 1600×900
+      Game screen from Player 1's side, mid-round, Sabotage Die visible. Real screenshot preferred.
+
+- [ ] **`assets/img/fold-or-roll/02-player2-view.jpg`** — 1200×900
+      Same round from the second computer, showing the hidden opponent total.
+
+- [ ] **`assets/img/fold-or-roll/03-showdown.jpg`** — 1200×900
+      The showdown screen with both hands revealed.
+
+- [ ] **`assets/img/fold-or-roll/04-two-machines.jpg`** — 1600×900
+      Two laptops side by side playing each other. Proves the networking claim.
+
+## Also needed
+
+- [ ] **`assets/img/og-card.png`** — 1200×630. The link-preview card for LinkedIn and
+      iMessage. Easiest version: the FlashBack hero photo with your name on it.
+- [ ] **`assets/resume.pdf`** — your résumé export. Two fixes first: replace the
+      `github.com/jake` placeholder with this site's URL, and remove "EECS second-in-command"
+      so the wording matches the site.

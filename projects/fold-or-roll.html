@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fold or Roll: Networked Dice Game — Andrew DeLaCruz</title>
+<meta name="description" content="A two-player MATLAB dice betting game synced across two separate computers in near real time using ThingSpeak's IoT REST API. Turn gating, a compressed JSON format, and a side-pot algorithm built for any number of players.">
+<link rel="canonical" href="https://andrewldelacruz.github.io/projects/fold-or-roll.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://andrewldelacruz.github.io/projects/fold-or-roll.html">
+<meta property="og:title" content="Fold or Roll: Networked Dice Game">
+<meta property="og:description" content="Two computers kept in sync at ~1 Hz over an IoT REST API, with turn gating and a compressed data format that keeps each player's dice private until showdown.">
+<meta property="og:image" content="https://andrewldelacruz.github.io/assets/img/fold-or-roll/01-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Andrew DeLaCruz <span>· ME</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="../#projects">Projects</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#skills">Skills</a>
+      <a href="../#about">About</a>
+      <a class="nav-cta" href="../assets/resume.pdf">Résumé&nbsp;(PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap project-head">
+    <a class="backlink" href="../#projects">&larr; All projects</a>
+    <p class="eyebrow">ENG 06 final project · Jan – Mar 2026</p>
+    <h1>Fold or Roll: Networked Dice Game</h1>
+    <p class="lede">
+      A two-player dice betting game in MATLAB App Designer — playable between two
+      <em>separate computers</em> in near real time. The class asked for a GUI game; we built a
+      distributed one.
+    </p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>Networking &amp; synchronization, game logic</dd></div>
+      <div><dt>Timeline</dt><dd>Jan – Mar 2026</dd></div>
+      <div><dt>Course</dt><dd>ENG 06, UC Davis</dd></div>
+      <div><dt>Sync rate</dt><dd>~1 update per second</dd></div>
+      <div><dt>Tools</dt><dd>MATLAB · App Designer · ThingSpeak · REST · JSON</dd></div>
+    </dl>
+
+    <figure class="hero-figure">
+      <img src="../assets/img/fold-or-roll/01-hero.jpg"
+           data-placeholder="../assets/img/fold-or-roll/01-hero.svg"
+           alt="The Fold or Roll game screen from Player 1's view, mid-round"
+           width="1600" height="900">
+      <figcaption>Player 1's view, mid-round. The Sabotage Die is 4, so both rolled 4s count as
+        zero — leaving a hand total of 14. Player 2's total stays hidden because their dice never
+        leave their own computer.</figcaption>
+    </figure>
+  </div>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>The game</h2>
+      <p>
+        Each player rolls five dice and bets poker-style — Raise, Stand, or Fold. The twist is a
+        random <strong>Sabotage Die</strong> rolled each round: any of your dice matching it become
+        zeros. So a strong-looking hand can be gutted by one unlucky roll, which is what makes the
+        betting interesting.
+      </p>
+      <p>
+        The assignment only required a working GUI game on one machine. We decided it should be
+        playable between two people on two computers, which turned a UI exercise into a distributed
+        systems problem.
+      </p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>What I did</h2>
+
+      <h3>Networking &amp; synchronization</h3>
+      <ul>
+        <li><strong>Used ThingSpeak as a shared database.</strong> It's an IoT cloud platform meant
+          for sensor telemetry, not game state — but it exposes a REST API that both computers can
+          read from and write to, which is all a turn-based game actually needs. No server to host,
+          nothing to pay for.</li>
+        <li><strong>Built timer-based polling</strong> at roughly one update per second, so balances,
+          the pot, whose turn it is, and the action history stay consistent on both screens.</li>
+        <li><strong>Added turn gating and a two-stage connection process</strong> — players can only
+          act on their own turn, and Player 2 joins automatically once Player 1 starts the game.</li>
+        <li><strong>Designed a compressed JSON data format</strong> to fit inside the platform's
+          field size limits while keeping each player's dice on their own machine. The opponent's
+          total stays hidden until the showdown, which meant deciding what genuinely had to be
+          shared versus what only looked like it did.</li>
+      </ul>
+
+      <h3>Game logic</h3>
+      <ul>
+        <li>Wrote the <strong>side-pot algorithm</strong>, built to handle any number of players
+          rather than hard-coding two.</li>
+        <li>Implemented game and round setup: antes, forced all-ins, eliminations, and tied-pot
+          carryover between rounds.</li>
+        <li>Built the dice-roll animation and sound effects.</li>
+      </ul>
+
+      <div class="callout">
+        <p class="eyebrow">The takeaway</p>
+        <p>
+          Syncing two systems turned out to be less about the network and more about
+          <strong>deciding who owns which piece of data, and when it's allowed to change.</strong>
+          Once that was settled, the polling loop was straightforward. That's the same question
+          behind remote sensor monitoring and test-rig data acquisition — which is where I expect to
+          run into it again.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>Screens</h2>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img src="../assets/img/fold-or-roll/02-player2-view.jpg"
+               data-placeholder="../assets/img/fold-or-roll/02-player2-view.svg"
+               alt="The same round from Player 2's screen on the second computer"
+               loading="lazy" width="1200" height="900">
+          <figcaption>The same round from Player 2's machine — same pot and history, different
+            private dice.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/fold-or-roll/03-showdown.jpg"
+               data-placeholder="../assets/img/fold-or-roll/03-showdown.svg"
+               alt="The showdown screen revealing both players' hands"
+               loading="lazy" width="1200" height="900">
+          <figcaption>Showdown — the only point at which both totals become visible to both
+            players.</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="../assets/img/fold-or-roll/04-two-machines.jpg"
+               data-placeholder="../assets/img/fold-or-roll/04-two-machines.svg"
+               alt="Two laptops side by side running the game against each other"
+               loading="lazy" width="1600" height="900">
+          <figcaption>Two laptops playing each other over the ThingSpeak sync layer.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>What I'd change</h2>
+      <p>
+        Polling at 1 Hz is the honest weak point — it's simple and it worked, but it means up to a
+        second of lag and a steady stream of requests whether anything changed or not. A real
+        implementation would push updates instead of polling for them, and would need a proper
+        answer for conflicting writes rather than relying on turn gating to make conflicts
+        impossible by construction.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="pager">
+        <a href="flashback.html">
+          <p class="eyebrow">Next project</p>
+          <strong>FlashBack: 270° Panoramic Photo Booth</strong>
+        </a>
+        <a href="nightstand-hub.html">
+          <p class="eyebrow">Also</p>
+          <strong>Smart Nightstand Hub</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Andrew DeLaCruz · Built with plain HTML and CSS, hosted on GitHub Pages.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:aldelacruz@ucdavis.edu">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/andrew-delacruz/">LinkedIn</a></li>
+      <li><a href="https://github.com/andrewldelacruz">GitHub</a></li>
+      <li><a href="../assets/resume.pdf">Résumé</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

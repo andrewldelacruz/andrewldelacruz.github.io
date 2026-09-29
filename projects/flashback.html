@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlashBack: 270° Panoramic Photo Booth — Andrew DeLaCruz</title>
+<meta name="description" content="A battery-powered photo booth that rotates on a servo turntable, stitches 16 frames into a 270° panorama in OpenCV, and prints it on a thermal printer. Built in six weeks with a 22-person team at DUEN.">
+<link rel="canonical" href="https://andrewldelacruz.github.io/projects/flashback.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://andrewldelacruz.github.io/projects/flashback.html">
+<meta property="og:title" content="FlashBack: 270° Panoramic Photo Booth">
+<meta property="og:description" content="Servo-driven turntable, 16-frame OpenCV stitching pipeline, thermal-printed keepsake. Ball-bearing load path, 6-hour power budget, Tkinter touchscreen UI.">
+<meta property="og:image" content="https://andrewldelacruz.github.io/assets/img/flashback/01-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Andrew DeLaCruz <span>· ME</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="../#projects">Projects</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#skills">Skills</a>
+      <a href="../#about">About</a>
+      <a class="nav-cta" href="../assets/resume.pdf">Résumé&nbsp;(PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap project-head">
+    <a class="backlink" href="../#projects">&larr; All projects</a>
+    <p class="eyebrow">DUEN · Spring 2026</p>
+    <h1>FlashBack: 270° Panoramic Photo Booth</h1>
+    <p class="lede">
+      A portable, battery-powered photo booth that rotates on a servo-driven turntable, takes 16
+      overlapping photos, stitches them into a 270° panorama, and prints it on a thermal printer
+      as a physical keepsake.
+    </p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>EECS contributor &amp; mechanical liaison</dd></div>
+      <div><dt>Timeline</dt><dd>Mar – May 2026 · 6 weeks</dd></div>
+      <div><dt>Team</dt><dd>22 people, two subteams</dd></div>
+      <div><dt>Build cost</dt><dd>$339.60</dd></div>
+      <div><dt>Tools</dt><dd>SolidWorks · Python · OpenCV · Raspberry Pi 4</dd></div>
+    </dl>
+
+    <figure class="hero-figure">
+      <img src="../assets/img/flashback/01-hero.jpg"
+           data-placeholder="../assets/img/flashback/01-hero.svg"
+           alt="The assembled FlashBack booth with its camera mast extended"
+           width="1600" height="900">
+      <figcaption>The finished booth, field-tested at DUEN tabling and formal events.</figcaption>
+    </figure>
+  </div>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>The problem</h2>
+      <p>
+        Photos taken at club events get buried in a camera roll and never looked at again. Our team
+        was asked to build something that solved a real problem for UC Davis students, and we went
+        after that one: a booth that hands you a physical print you can actually keep, wide enough
+        to fit a whole group of people standing in an arc around it.
+      </p>
+      <p>
+        Six weeks, 22 people, and a working prototype that had to survive being carried to events
+        and run off a battery for an evening.
+      </p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>What I did</h2>
+
+      <h3>Mechanical design</h3>
+      <ul>
+        <li><strong>Redesigned the load path.</strong> The original design hung the rotating chassis
+          weight on the servo shaft. I proposed moving it onto a <strong>ball bearing ring</strong>
+          so the servo only supplies torque, not structural support — which also eliminated a
+          motor-induced rattle that was showing up in the photos.</li>
+        <li><strong>Selected the counterweights</strong> and tested stability with the camera mast
+          fully extended, since that's the configuration where the booth is closest to tipping.</li>
+        <li><strong>Designed the electromechanical packaging</strong> — where the Raspberry Pi 4,
+          battery, buck converters, fuse box, and thermal printer physically sit inside the
+          chassis — and planned the wire routing, including a honeycomb shelf that carries cabling
+          while still letting air move through the enclosure.</li>
+        <li>Contributed to concept generation, the overall form, and the engineering drawings, and
+          took part in the SolidWorks assembly design review.</li>
+      </ul>
+
+      <h3>Electronics &amp; power</h3>
+      <ul>
+        <li><strong>Calculated the power budget and battery runtime</strong> to support a 6-hour
+          event on one charge, working with buck converters to step voltages down and a fuse box
+          for protection.</li>
+        <li>Implemented <strong>PWM servo control</strong> from the Pi's GPIO — the firmware
+          converts a target angle into a pulse width across a 500–2500 µs range on a 270° servo.</li>
+        <li><strong>Debugged hardware faults by isolating the layer.</strong> A servo that wouldn't
+          rotate turned out to be a power and grounding issue, not code. Failed thermal prints
+          traced back to printer supply voltage rather than the print routine.</li>
+        <li>Found a <strong>Raspberry Pi short circuit minutes before technical review</strong>,
+          swapped in a backup board, and kept the demo on schedule.</li>
+      </ul>
+
+      <h3>Software &amp; computer vision</h3>
+      <ul>
+        <li><strong>Developed the panorama stitching pipeline</strong> in Python and OpenCV. Getting
+          from "sometimes works" to consistent 270° output meant tuning three things together:
+          frame overlap (how many capture angles, and how far apart), exposure and white-balance
+          locking so brightness doesn't shift between frames, and servo settle time before each
+          shot.</li>
+        <li><strong>Built the touchscreen UI</strong> in Tkinter — live camera preview, three photo
+          modes, LED ring light controls, and multi-copy printing, driven by a phase state machine
+          from countdown through capture sweep, stitch, and print.</li>
+        <li>Handled <strong>thread safety</strong>: long work runs on background threads with locks
+          so the live preview and the capture sweep never contend for the camera, and all UI
+          mutations are marshalled back onto the main thread.</li>
+        <li>Programmed the <strong>61-LED addressable ring light</strong> modes and drove the
+          <strong>ESC/POS thermal printer over USB</strong>, converting stitched images into
+          dithered black-and-white output the printer can actually reproduce.</li>
+        <li>Built a <strong>headless mode</strong> so the entire UI and state machine run on a
+          laptop with fakes standing in for the camera, stitcher, printer, LEDs, and servo. That
+          let the software be developed and tested while the hardware was still being printed.</li>
+      </ul>
+
+      <h3>Systems integration</h3>
+      <ul>
+        <li>I was the link between the mechanical and EECS subteams. The clearest example of why
+          that mattered: <strong>servo settle time drives image blur, which drives whether
+          stitching succeeds.</strong> Speeding up the sweep to make the booth feel responsive
+          directly degraded the panorama. That's a mechanical parameter with a software
+          consequence, and it only gets found by someone looking at both.</li>
+        <li>Practiced <strong>root-cause analysis across domains</strong> — determining whether a
+          given failure was mechanical, electrical, or software before the team committed time to
+          the wrong fix.</li>
+      </ul>
+
+      <div class="callout">
+        <p class="eyebrow">A materials lesson</p>
+        <p>
+          Several printed parts warped after being left in a car in the Davis sun. PLA's glass
+          transition starts around 55–60 °C, and a parked car easily exceeds that. It was a useful
+          reminder that material selection has to account for the environment a part sits in, not
+          just the loads it carries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>The build</h2>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img src="../assets/img/flashback/02-panorama-print.jpg"
+               data-placeholder="../assets/img/flashback/02-panorama-print.svg"
+               alt="A printed 270-degree panorama coming off the thermal printer"
+               loading="lazy" width="1200" height="900">
+          <figcaption>The output: a 270° panorama stitched from 16 frames and printed as a dithered
+            thermal keepsake.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/flashback/03-internals.jpg"
+               data-placeholder="../assets/img/flashback/03-internals.svg"
+               alt="Inside the chassis, showing the Raspberry Pi, battery, buck converters and wire routing"
+               loading="lazy" width="1200" height="900">
+          <figcaption>Electromechanical packaging inside the chassis — Pi 4, battery, buck
+            converters, fuse box, and the honeycomb shelf that carries cabling and airflow.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/flashback/04-bearing-base.jpg"
+               data-placeholder="../assets/img/flashback/04-bearing-base.svg"
+               alt="The ball-bearing rotating base that carries the chassis weight"
+               loading="lazy" width="1200" height="900">
+          <figcaption>The bearing-supported base. Chassis weight rests on the bearing ring, so the
+            servo supplies torque only.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/flashback/05-ui.jpg"
+               data-placeholder="../assets/img/flashback/05-ui.svg"
+               alt="The Tkinter touchscreen interface showing the live camera preview"
+               loading="lazy" width="1200" height="900">
+          <figcaption>The Tkinter touchscreen UI: live preview, photo modes, LED ring controls, and
+            the print picker.</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="../assets/img/flashback/06-team.jpg"
+               data-placeholder="../assets/img/flashback/06-team.svg"
+               alt="The DUEN team with the finished booth at an event"
+               loading="lazy" width="1600" height="900">
+          <figcaption>The team with the finished booth. Six weeks from concept to a field-tested
+            prototype.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="wrap">
+      <h2>What I'd change</h2>
+      <p>
+        <strong>Shrink the rotating section.</strong> We rotated more mass than we needed to, which
+        raised the inertia the servo had to accelerate and decelerate — that's what forced the long
+        settle times that fought against image sharpness. A smaller rotating assembly with the
+        heavy components moved to the stationary base would let the sweep run faster and stitch
+        more reliably at the same time, instead of trading one against the other.
+      </p>
+      <p>
+        I'd also give the drawings more time. We produced them under deadline pressure and it shows;
+        proper datums and callouts on the fits would have caught assembly problems before parts
+        went on the printer.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Reference</p>
+        <h2>By the numbers</h2>
+      </div>
+      <div class="table-scroll">
+        <table class="numbers">
+          <tbody>
+            <tr><th scope="row">Panorama coverage</th><td>270°</td></tr>
+            <tr><th scope="row">Frames per panorama</th><td>16 overlapping captures</td></tr>
+            <tr><th scope="row">Servo</th><td>270° travel, PWM 500–2500 µs</td></tr>
+            <tr><th scope="row">Ring light</th><td>61 addressable LEDs, external 5 V supply</td></tr>
+            <tr><th scope="row">Target battery runtime</th><td>6 hours of event use</td></tr>
+            <tr><th scope="row">Compute</th><td>Raspberry Pi 4</td></tr>
+            <tr><th scope="row">Printer</th><td>ESC/POS thermal, USB</td></tr>
+            <tr><th scope="row">Build cost</th><td>$339.60</td></tr>
+            <tr><th scope="row">Team / duration</th><td>22 people, 6 weeks</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="pager">
+        <a href="nightstand-hub.html">
+          <p class="eyebrow">Next project</p>
+          <strong>Smart Nightstand Hub</strong>
+        </a>
+        <a href="fold-or-roll.html">
+          <p class="eyebrow">Also</p>
+          <strong>Fold or Roll: Networked Dice Game</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Andrew DeLaCruz · Built with plain HTML and CSS, hosted on GitHub Pages.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:aldelacruz@ucdavis.edu">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/andrew-delacruz/">LinkedIn</a></li>
+      <li><a href="https://github.com/andrewldelacruz">GitHub</a></li>
+      <li><a href="../assets/resume.pdf">Résumé</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
