@@ -91,6 +91,7 @@
     pages.forEach(function (p) { total += Object.keys(load('edits::' + p, {})).length; });
     if (!total) { if (badge) { badge.remove(); badge = null; } return; }
     if (!badge) {
+      injectStyles();
       badge = document.createElement('button');
       badge.className = 'editbadge';
       badge.type = 'button';
@@ -99,6 +100,78 @@
       document.body.appendChild(badge);
     }
     badge.textContent = total + (total === 1 ? ' local edit' : ' local edits') + ' — not published';
+  }
+
+  /* --- styles -------------------------------------------------------------
+     Injected rather than kept in style.css on purpose: a stale cached
+     stylesheet would otherwise leave the editor with no outlines and an
+     unstyled toolbar far down the page, making it look like nothing is
+     editable when it actually is. */
+  function injectStyles() {
+    if (document.getElementById('edit-mode-styles')) return;
+    var st = document.createElement('style');
+    st.id = 'edit-mode-styles';
+    st.textContent = `.editbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 300;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .6rem;
+  padding: .7rem 1rem;
+  background: var(--bg-raised); border-top: 1px solid var(--border-str);
+  box-shadow: 0 -4px 24px rgba(0,0,0,.14);
+  font: 500 .86rem var(--font); color: var(--text);
+}
+.editbar strong { font-weight: 650; }
+.editbar-spacer { flex: 1 1 auto; }
+.editbar-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); flex: none;
+}
+.editbar [data-role="status"] { color: var(--text-mute); font-size: .82rem; }
+.editbar [data-role="status"][data-state="saved"] { color: var(--accent); }
+.editbar [data-role="status"][data-state="error"] { color: #d23f0f; font-weight: 600; }
+.editbar [data-role="note"] {
+  flex-basis: 100%; margin: .2rem 0 0; max-width: none;
+  font-size: .8rem; color: var(--text-soft); line-height: 1.5;
+}
+.editbar button {
+  font: 550 .84rem var(--font); cursor: pointer;
+  padding: .42rem .8rem; border-radius: 7px;
+  border: 1px solid var(--border-str); background: var(--bg); color: var(--text);
+}
+.editbar button:hover { background: var(--bg-sunken); }
+.editbar button[data-act="download"] {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.editbar button[data-act="discard"] { color: #d23f0f; }
+
+.editbadge {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 290;
+  font: 600 .76rem var(--font); cursor: pointer;
+  padding: .5rem .8rem; border-radius: 100px;
+  background: var(--accent-bg); color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: var(--shadow);
+}
+.editbadge:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+body.is-editing .editbadge { display: none; }
+
+/* Leave room for the toolbar so it never covers the last line of the page. */
+body.is-editing { padding-bottom: 4.5rem; }
+
+body.is-editing [contenteditable] {
+  outline: 1px dashed color-mix(in srgb, var(--accent) 40%, transparent);
+  outline-offset: 3px; border-radius: 2px;
+}
+body.is-editing [contenteditable]:hover {
+  outline-style: solid;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+body.is-editing [contenteditable]:focus {
+  outline: 2px solid var(--accent); outline-offset: 3px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+@media print { .editbar, .editbadge { display: none !important; } }`;
+    document.head.appendChild(st);
   }
 
   /* --- edit mode --------------------------------------------------------- */
@@ -119,6 +192,7 @@
   function on() {
     if (editing) return;
     editing = true;
+    injectStyles();
     document.body.classList.add('is-editing');
 
     targets().forEach(function (el) {

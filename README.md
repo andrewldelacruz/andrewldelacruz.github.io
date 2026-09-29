@@ -100,3 +100,15 @@ can always tell the difference between "changed on my screen" and "changed for r
 - Edits are tracked by each element's position in the page. If you later restructure the HTML, a
   stored edit that no longer matches is skipped rather than applied to the wrong place.
 - **Discard all** in the toolbar wipes every unpublished edit on every page.
+
+### If a change doesn't show up
+
+Browsers cache CSS for a few minutes, so a style change can take a moment to appear. Hard-refresh
+with **Cmd + Shift + R** to force it.
+
+The `?v=2` on the stylesheet link exists for this reason — bumping that number makes every browser
+fetch the CSS fresh. If you ever edit `css/style.css` and the change doesn't appear for someone,
+bump it to `?v=3` in all five HTML files.
+
+Edit mode is immune to this: `js/edit.js` carries its own styles, so a stale stylesheet can't leave
+you with an invisible toolbar and text that looks uneditable.
