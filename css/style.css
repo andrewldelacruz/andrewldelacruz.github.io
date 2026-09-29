@@ -236,7 +236,9 @@ section + section { border-top: 1px solid var(--border); }
 }
 
 /* --- Experience ---------------------------------------------------------- */
-.roles { display: grid; gap: 2rem; }
+/* Cap the width so the date stays visually attached to the role it belongs to,
+   instead of being flung to the far edge of a wide viewport. */
+.roles { display: grid; gap: 2rem; max-width: 52rem; }
 .role { border-left: 2px solid var(--border-str); padding-left: 1.25rem; }
 .role-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; margin-bottom: .1rem; }
 .role h3 { margin: 0; }
