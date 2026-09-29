@@ -65,3 +65,38 @@ After that, every push republishes automatically — usually live within a minut
 - Light and dark mode both supported via `prefers-color-scheme`.
 - The phone number is deliberately not on the site — only email and LinkedIn. Recruiters who need
   the number have the résumé.
+
+## Editing text in the browser
+
+You can edit any text on the site directly on the page, without opening a code editor.
+
+**Turn it on:** add `?edit` to any URL — e.g. <https://andrewldelacruz.github.io/?edit> — or press
+**Cmd + Shift + E** on any page. Press Escape or click Done to leave.
+
+Click any text, type. Edits save to your browser automatically as you go.
+
+### The important part
+
+Your edits are stored in **your browser only**. GitHub Pages serves static files, so a web page
+cannot write back to this repository. The live site everyone else sees does not change until you
+publish, which is two steps:
+
+1. In edit mode, click **Download edited pages**. You get the real `.html` files with your changes
+   applied.
+2. Replace the matching files in this folder with the downloaded ones, then commit and push.
+
+A badge in the bottom-right corner shows how many edits you have that aren't published yet, so you
+can always tell the difference between "changed on my screen" and "changed for real".
+
+### Notes
+
+- **Only you see edit mode's effects.** A visitor who adds `?edit` can type on the page, but they're
+  only changing their own copy in their own browser — they can't touch your site or your repo.
+- **Links and buttons aren't editable**, so navigation keeps working while you edit. Change those in
+  the HTML.
+- **Pasted text comes in as plain text**, so pasting from Word or a browser won't drag foreign fonts
+  and colors into the page.
+- **Clearing your browser data erases unpublished edits.** Download before you clear.
+- Edits are tracked by each element's position in the page. If you later restructure the HTML, a
+  stored edit that no longer matches is skipped rather than applied to the wrong place.
+- **Discard all** in the toolbar wipes every unpublished edit on every page.
