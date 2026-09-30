@@ -16,19 +16,54 @@ IMAGES-TODO.md          Checklist of photos still needed
 .nojekyll               Tells GitHub Pages not to run Jekyll
 ```
 
-## Editing it
+## Editing text
 
-**Change wording:** open the `.html` file and edit the text. Nothing is generated.
+Edit the files on github.com. One copy of the truth, changes go live in about a minute, and it
+works from a phone.
 
-**Change colors or fonts:** the top of `css/style.css` has two blocks of variables — one for light
-mode, one for dark. Change `--accent` to recolor every link, button, and heading accent at once.
+### The quick way — one file
 
-**Add a photo:** see `IMAGES-TODO.md`. Short version — name the file exactly as listed, drop it in
-the right folder, push. Placeholders disappear automatically.
+1. Go to <https://github.com/andrewldelacruz/andrewldelacruz.github.io>
+2. Click the file you want (`index.html` for the home page, `projects/*.html` for a project)
+3. Click the **pencil icon** at the top right
+4. Find your text and change it
+5. Scroll down, write a short note about what you changed, click **Commit changes**
 
-**Add a fourth project:** copy `projects/nightstand-hub.html` to a new filename, replace the
-content, then add a matching card to the `.cards` block in `index.html` and a new folder under
-`assets/img/`.
+Live in roughly a minute. Hard-refresh (**Cmd + Shift + R**) if you don't see it.
+
+### The better way — several files at once
+
+On the repo page, press the **`.`** key. That opens github.dev: full VS Code in your browser, with
+the whole repo open. Edit as many files as you like, then use the Source Control panel on the left
+to commit and push. Nothing to install.
+
+### Finding your text in the HTML
+
+Use **Cmd + F** and search for a few words of the sentence you want to change. Your text sits
+between tags, and you edit only the part between them:
+
+```html
+<p>
+  I'm a second-year mechanical engineering student at UC Davis.
+</p>
+```
+
+Change the words, leave the `<p>` and `</p>` alone. Same for `<h2>`, `<li>`, and `<figcaption>`.
+
+A few things worth knowing:
+
+- `<strong>bold text</strong>` makes text bold. Keep both tags or neither.
+- `&amp;` is how an `&` is written in HTML. Leave it as is.
+- `&nbsp;` is a space that won't line-break. Leave it as is.
+- If you delete a tag by accident, don't panic: GitHub keeps every version. Open the file's
+  **History** and restore the previous one.
+
+### Why not edit on the page itself
+
+An earlier version of this site had an in-page editor that saved to the browser. It was convenient
+but wrong in a specific way: the edits lived in one browser and nowhere else, so the site you saw
+and the site everyone else saw drifted apart, and publishing meant downloading files and putting
+them back by hand. Editing the file directly removes the copy, and with it the drift.
 
 ## Previewing locally
 
@@ -66,49 +101,11 @@ After that, every push republishes automatically — usually live within a minut
 - The phone number is deliberately not on the site — only email and LinkedIn. Recruiters who need
   the number have the résumé.
 
-## Editing text in the browser
-
-You can edit any text on the site directly on the page, without opening a code editor.
-
-**Turn it on:** add `?edit` to any URL — e.g. <https://andrewldelacruz.github.io/?edit> — or press
-**Cmd + Shift + E** on any page. Press Escape or click Done to leave.
-
-Click any text, type. Edits save to your browser automatically as you go.
-
-### The important part
-
-Your edits are stored in **your browser only**. GitHub Pages serves static files, so a web page
-cannot write back to this repository. The live site everyone else sees does not change until you
-publish, which is two steps:
-
-1. In edit mode, click **Download edited pages**. You get the real `.html` files with your changes
-   applied.
-2. Replace the matching files in this folder with the downloaded ones, then commit and push.
-
-A badge in the bottom-right corner shows how many edits you have that aren't published yet, so you
-can always tell the difference between "changed on my screen" and "changed for real".
-
-### Notes
-
-- **Only you see edit mode's effects.** A visitor who adds `?edit` can type on the page, but they're
-  only changing their own copy in their own browser — they can't touch your site or your repo.
-- **Links and buttons aren't editable**, so navigation keeps working while you edit. Change those in
-  the HTML.
-- **Pasted text comes in as plain text**, so pasting from Word or a browser won't drag foreign fonts
-  and colors into the page.
-- **Clearing your browser data erases unpublished edits.** Download before you clear.
-- Edits are tracked by each element's position in the page. If you later restructure the HTML, a
-  stored edit that no longer matches is skipped rather than applied to the wrong place.
-- **Discard all** in the toolbar wipes every unpublished edit on every page.
-
 ### If a change doesn't show up
 
 Browsers cache CSS for a few minutes, so a style change can take a moment to appear. Hard-refresh
 with **Cmd + Shift + R** to force it.
 
-The `?v=2` on the stylesheet link exists for this reason — bumping that number makes every browser
-fetch the CSS fresh. If you ever edit `css/style.css` and the change doesn't appear for someone,
-bump it to `?v=3` in all five HTML files.
-
-Edit mode is immune to this: `js/edit.js` carries its own styles, so a stale stylesheet can't leave
-you with an invisible toolbar and text that looks uneditable.
+The `?v=6` on the stylesheet link exists for this reason — bumping that number makes every browser
+fetch the CSS fresh. If you edit `css/style.css` and the change doesn't appear, bump it to `?v=7`
+in all five HTML files. Text changes need no version bump; this applies to CSS only.
