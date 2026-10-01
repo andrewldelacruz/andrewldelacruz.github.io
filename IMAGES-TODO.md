@@ -18,7 +18,7 @@ Delete the matching `.svg` once a real photo is in place (optional — it just s
 
 ## Site-wide
 
-- [ ] **`assets/img/headshot.jpg`** — 440×440
+- [x] **`assets/img/headshot.jpg`** — 880×880 — done (professional headshot, Oct 2026)
       Head-and-shoulders photo, neutral background. Reuse your LinkedIn profile picture.
 
 ## FlashBack
