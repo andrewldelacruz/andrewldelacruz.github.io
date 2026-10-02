@@ -54,19 +54,14 @@ converters) and one of the bearing base. The CAD renders stand in for both.
 - [ ] **`assets/img/nightstand/06-gdt-drawing.jpg`** — 1600×900
       The GD&T drawing sheet once finished. Replace the 'in progress' wording on the page when you add it.
 
-## Fold or Roll
+## Fold or Roll — done
 
-- [ ] **`assets/img/fold-or-roll/01-hero.jpg`** — 1600×900
-      Game screen from Player 1's side, mid-round, Sabotage Die visible. Real screenshot preferred.
+- [x] `assets/img/fold-or-roll/01-hero.jpg` — Player 1's game screen, mid-round
+- [x] `assets/img/fold-or-roll/card.jpg` — 16:10 crop for the home-page card
 
-- [ ] **`assets/img/fold-or-roll/02-player2-view.jpg`** — 1200×900
-      Same round from the second computer, showing the hidden opponent total.
-
-- [ ] **`assets/img/fold-or-roll/03-showdown.jpg`** — 1200×900
-      The showdown screen with both hands revealed.
-
-- [ ] **`assets/img/fold-or-roll/04-two-machines.jpg`** — 1600×900
-      Two laptops side by side playing each other. Proves the networking claim.
+The page used to have a three-image gallery; with only one screenshot it was mostly placeholders,
+so the gallery was removed and the screenshot promoted to the hero. If you ever capture Player 2's
+view, a showdown, or the two laptops playing each other, say so and the gallery can come back.
 
 ## Also needed
 

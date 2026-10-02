@@ -12,7 +12,7 @@
 <meta property="og:description" content="Two computers kept in sync at ~1 Hz over an IoT REST API, with turn gating and a compressed data format that keeps each player's dice private until showdown.">
 <meta property="og:image" content="https://andrewldelacruz.github.io/assets/img/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../css/style.css?v=8">
+<link rel="stylesheet" href="../css/style.css?v=9">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -53,14 +53,14 @@
       <div><dt>Tools</dt><dd>MATLAB · App Designer · ThingSpeak · REST · JSON</dd></div>
     </dl>
 
-    <figure class="hero-figure">
+    <figure class="hero-figure natural">
       <img src="../assets/img/fold-or-roll/01-hero.jpg"
-           data-placeholder="../assets/img/fold-or-roll/01-hero.svg"
-           alt="The Fold or Roll game screen from Player 1's view, mid-round"
-           width="1600" height="900">
-      <figcaption>Player 1's view, mid-round. The Sabotage Die is 4, so both rolled 4s count as
-        zero — leaving a hand total of 14. Player 2's total stays hidden because their dice never
-        leave their own computer.</figcaption>
+           alt="The Fold or Roll game window: Player 1's dice, the Sabotage Die, the pot and the action history"
+           width="1600" height="1213">
+      <figcaption>Player 1's screen, mid-round. The Sabotage Die is 4, so both rolled 4s count as
+        zero — leaving a hand total of 14. Player 2's total shows as ??? because their dice never
+        leave their own computer; balances, the pot and the action history sync about once a
+        second.</figcaption>
     </figure>
   </div>
 
@@ -119,40 +119,6 @@
           behind remote sensor monitoring and test-rig data acquisition — which is where I expect to
           run into it again.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Gallery</p>
-        <h2>Screens</h2>
-      </div>
-      <div class="gallery">
-        <figure>
-          <img src="../assets/img/fold-or-roll/02-player2-view.jpg"
-               data-placeholder="../assets/img/fold-or-roll/02-player2-view.svg"
-               alt="The same round from Player 2's screen on the second computer"
-               loading="lazy" width="1200" height="900">
-          <figcaption>The same round from Player 2's machine — same pot and history, different
-            private dice.</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/fold-or-roll/03-showdown.jpg"
-               data-placeholder="../assets/img/fold-or-roll/03-showdown.svg"
-               alt="The showdown screen revealing both players' hands"
-               loading="lazy" width="1200" height="900">
-          <figcaption>Showdown — the only point at which both totals become visible to both
-            players.</figcaption>
-        </figure>
-        <figure class="wide">
-          <img src="../assets/img/fold-or-roll/04-two-machines.jpg"
-               data-placeholder="../assets/img/fold-or-roll/04-two-machines.svg"
-               alt="Two laptops side by side running the game against each other"
-               loading="lazy" width="1600" height="900">
-          <figcaption>Two laptops playing each other over the ThingSpeak sync layer.</figcaption>
-        </figure>
       </div>
     </div>
   </section>
