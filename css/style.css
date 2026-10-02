@@ -352,6 +352,9 @@ figcaption {
 
 .hero-figure { margin: 2.25rem 0 0; }
 .hero-figure img { aspect-ratio: 16/9; object-fit: cover; }
+/* Some hero images aren't 16:9 — a printed panorama is a long banner, and
+   cropping it to 16:9 would throw most of it away. */
+.hero-figure.banner img { aspect-ratio: auto; object-fit: contain; }
 
 .gallery { display: grid; gap: 1.75rem; }
 @media (min-width: 720px) { .gallery { grid-template-columns: repeat(2, 1fr); } }

@@ -12,7 +12,7 @@
 <meta property="og:description" content="Servo-driven turntable, 16-frame OpenCV stitching pipeline, thermal-printed keepsake. Ball-bearing load path, 6-hour power budget, Tkinter touchscreen UI.">
 <meta property="og:image" content="https://andrewldelacruz.github.io/assets/img/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../css/style.css?v=7">
+<link rel="stylesheet" href="../css/style.css?v=8">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -54,12 +54,12 @@
         target="_blank" rel="noopener">Full project manual &#8599;</a></dd></div>
     </dl>
 
-    <figure class="hero-figure">
+    <figure class="hero-figure banner">
       <img src="../assets/img/flashback/01-hero.jpg"
-           data-placeholder="../assets/img/flashback/01-hero.svg"
-           alt="The assembled FlashBack booth with its camera mast extended"
-           width="1600" height="900">
-      <figcaption>The finished booth, field-tested at DUEN tabling and formal events.</figcaption>
+           alt="A printed 270-degree panorama of the DUEN banquet, captured by the booth"
+           width="1920" height="248">
+      <figcaption>What the booth makes: a 270° panorama stitched from 16 frames and printed on the
+        spot. This one is the DUEN 2026 banquet.</figcaption>
     </figure>
   </div>
 
@@ -176,45 +176,40 @@
         <h2>The build</h2>
       </div>
       <div class="gallery">
-        <figure>
-          <img src="../assets/img/flashback/02-panorama-print.jpg"
-               data-placeholder="../assets/img/flashback/02-panorama-print.svg"
-               alt="A printed 270-degree panorama coming off the thermal printer"
-               loading="lazy" width="1200" height="900">
-          <figcaption>The output: a 270° panorama stitched from 16 frames and printed as a dithered
-            thermal keepsake.</figcaption>
+        <figure class="tall">
+          <img src="../assets/img/flashback/02-booth.jpg"
+               alt="Andrew holding the finished FlashBack booth, camera mast extended"
+               loading="lazy" width="960" height="1280">
+          <figcaption>The finished booth. The camera and ring light sit on an extendable mast; the
+            thermal printer feeds out of the front.</figcaption>
+        </figure>
+        <figure class="tall">
+          <img src="../assets/img/flashback/03-ui.jpg"
+               alt="The booth's touchscreen showing the live camera feed, mode selector and session counter"
+               loading="lazy" width="991" height="1280">
+          <figcaption>The Tkinter touchscreen UI I built — live preview, mode selector, session and
+            total counters — with the four tactile control buttons either side.</figcaption>
         </figure>
         <figure>
-          <img src="../assets/img/flashback/03-internals.jpg"
-               data-placeholder="../assets/img/flashback/03-internals.svg"
-               alt="Inside the chassis, showing the Raspberry Pi, battery, buck converters and wire routing"
-               loading="lazy" width="1200" height="900">
-          <figcaption>Electromechanical packaging inside the chassis — Pi 4, battery, buck
-            converters, fuse box, and the honeycomb shelf that carries cabling and airflow.</figcaption>
+          <img src="../assets/img/flashback/04-cad-assembly.jpg"
+               alt="SolidWorks render of the full booth assembly on its rotating base"
+               loading="lazy" width="476" height="512">
+          <figcaption>The SolidWorks assembly: chassis, mast, camera head, and the rotating base
+            that carries the chassis weight on a bearing rather than the servo shaft.</figcaption>
         </figure>
         <figure>
-          <img src="../assets/img/flashback/04-bearing-base.jpg"
-               data-placeholder="../assets/img/flashback/04-bearing-base.svg"
-               alt="The ball-bearing rotating base that carries the chassis weight"
-               loading="lazy" width="1200" height="900">
-          <figcaption>The bearing-supported base. Chassis weight rests on the bearing ring, so the
-            servo supplies torque only.</figcaption>
+          <img src="../assets/img/flashback/05-cad-chassis.jpg"
+               alt="SolidWorks render of the chassis interior showing internal mounts and routing"
+               loading="lazy" width="509" height="512">
+          <figcaption>Chassis interior — the mounts and ledges that locate the Pi, battery, buck
+            converters and printer, and the paths the wiring runs along.</figcaption>
         </figure>
         <figure>
-          <img src="../assets/img/flashback/05-ui.jpg"
-               data-placeholder="../assets/img/flashback/05-ui.svg"
-               alt="The Tkinter touchscreen interface showing the live camera preview"
-               loading="lazy" width="1200" height="900">
-          <figcaption>The Tkinter touchscreen UI: live preview, photo modes, LED ring controls, and
-            the print picker.</figcaption>
-        </figure>
-        <figure class="wide">
-          <img src="../assets/img/flashback/06-team.jpg"
-               data-placeholder="../assets/img/flashback/06-team.svg"
-               alt="The DUEN team with the finished booth at an event"
-               loading="lazy" width="1600" height="900">
-          <figcaption>The team with the finished booth. Six weeks from concept to a field-tested
-            prototype.</figcaption>
+          <img src="../assets/img/flashback/06-cad-camera-head.jpg"
+               alt="SolidWorks render of the camera head and ring light housing"
+               loading="lazy" width="491" height="512">
+          <figcaption>The camera head: Camera Module 2 behind the 24-bit ring light, mounted to the
+            mast.</figcaption>
         </figure>
       </div>
     </div>

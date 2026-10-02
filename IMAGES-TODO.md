@@ -21,25 +21,18 @@ Delete the matching `.svg` once a real photo is in place (optional — it just s
 - [x] **`assets/img/headshot.jpg`** — 880×880 — done (professional headshot, Oct 2026)
       Head-and-shoulders photo, neutral background. Reuse your LinkedIn profile picture.
 
-## FlashBack
+## FlashBack — done
 
-- [ ] **`assets/img/flashback/01-hero.jpg`** — 1600×900
-      The whole booth, assembled, mast extended. Plain background, good light. This is the LinkedIn preview image.
+- [x] `assets/img/flashback/01-hero.jpg` — the printed DUEN banquet panorama (banner)
+- [x] `assets/img/flashback/02-booth.jpg` — the finished booth
+- [x] `assets/img/flashback/03-ui.jpg` — touchscreen UI, live feed and counters
+- [x] `assets/img/flashback/04-cad-assembly.jpg` — SolidWorks full assembly
+- [x] `assets/img/flashback/05-cad-chassis.jpg` — chassis interior
+- [x] `assets/img/flashback/06-cad-camera-head.jpg` — camera head and ring light
+- [x] `assets/img/flashback/card.jpg` — 16:10 crop for the home-page card
 
-- [ ] **`assets/img/flashback/02-panorama-print.jpg`** — 1200×900
-      A printed panorama in hand or coming off the printer. Show the physical keepsake.
-
-- [ ] **`assets/img/flashback/03-internals.jpg`** — 1200×900
-      Chassis open, showing Pi 4, battery, buck converters, fuse box, honeycomb shelf and wire routing.
-
-- [ ] **`assets/img/flashback/04-bearing-base.jpg`** — 1200×900
-      The rotating base / bearing ring. CAD screenshot works if you have no photo.
-
-- [ ] **`assets/img/flashback/05-ui.jpg`** — 1200×900
-      The Tkinter interface on the screen, live preview visible. A screenshot is fine.
-
-- [ ] **`assets/img/flashback/06-team.jpg`** — 1600×900
-      Team photo with the finished booth at an event. Pull from your LinkedIn post.
+Still missing, if you ever want them: a photo of the real chassis internals (wiring, Pi, buck
+converters) and one of the bearing base. The CAD renders stand in for both.
 
 ## Smart Nightstand Hub
 
