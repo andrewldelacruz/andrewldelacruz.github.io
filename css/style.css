@@ -329,16 +329,6 @@ section + section { border-top: 1px solid var(--border); }
 }
 .callout p:last-child { margin-bottom: 0; }
 .callout .eyebrow { color: var(--accent); }
-
-.note-wip {
-  display: inline-flex; align-items: center; gap: .4rem;
-  font: 600 .72rem/1 var(--font); letter-spacing: .07em; text-transform: uppercase;
-  color: var(--accent); background: var(--accent-bg);
-  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
-  border-radius: 100px; padding: .3rem .65rem; margin-left: .4rem;
-  vertical-align: middle;
-}
-
 /* --- Figures / gallery --------------------------------------------------- */
 figure { margin: 0; }
 figure img {
