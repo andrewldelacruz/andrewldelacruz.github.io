@@ -77,8 +77,9 @@ Delete the matching `.svg` once a real photo is in place (optional — it just s
 
 ## Also needed
 
-- [ ] **`assets/img/og-card.png`** — 1200×630. The link-preview card for LinkedIn and
-      iMessage. Easiest version: the FlashBack hero photo with your name on it.
+- [x] **`assets/img/og-card.png`** — 1200×630 — done. The link-preview card for LinkedIn and
+      iMessage. Every page points at it for now; once project photos land, each project page can
+      point at its own hero image instead.
 - [ ] **`assets/resume.pdf`** — your résumé export. Two fixes first: replace the
       `github.com/jake` placeholder with this site's URL, and remove "EECS second-in-command"
       so the wording matches the site.
