@@ -243,7 +243,9 @@ section + section { border-top: 1px solid var(--border); }
   color: var(--accent); background: var(--accent-bg);
   border-color: color-mix(in srgb, var(--accent) 32%, transparent);
 }
-.project-head .tag { margin-bottom: .9rem; }
+/* The back-link above is inline, so an inline-block badge would flow onto the
+   same line and read as part of it. Give it its own line. */
+.project-head .tag { display: block; width: max-content; margin-bottom: .9rem; }
 
 /* --- Chips --------------------------------------------------------------- */
 .chips { display: flex; flex-wrap: wrap; gap: .35rem; list-style: none; padding: 0; margin: 0; }
