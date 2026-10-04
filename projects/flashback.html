@@ -72,6 +72,10 @@
         after that one: a booth that hands you a physical print you can actually keep, wide enough
         to fit a whole group of people standing in an arc around it.
       </p>
+      <p>
+        We had six weeks, 22 people, and a working prototype that had to survive being carried to events
+        and run off a battery for an evening.
+      </p>
     </div>
   </section>
 
@@ -127,7 +131,7 @@
           frame overlap (how many capture angles, and how far apart), exposure and white-balance
           locking so brightness doesn't shift between frames, and servo settle time before each
           shot.</li>
-        <li><strong>Built the touchscreen UI</strong> in Tkinter — live camera preview, three photo
+        <li><strong>Built the touchscreen UI</strong> in Tkinter with live camera preview, three photo
           modes, LED ring light controls, and multi-copy printing, driven by a phase state machine
           from countdown through capture sweep, stitch, and print.</li>
         <li>Handled <strong>thread safety</strong>: long work runs on background threads with locks
@@ -148,7 +152,7 @@
           stitching succeeds.</strong> Speeding up the sweep to make the booth feel responsive
           directly degraded the panorama. That's a mechanical parameter with a software
           consequence, and it only gets found by someone looking at both.</li>
-        <li>Practiced <strong>root-cause analysis across domains</strong> — determining whether a
+        <li>Practiced <strong>root-cause analysis across domains</strong>, determining whether a
           given failure was mechanical, electrical, or software before the team committed time to
           the wrong fix.</li>
       </ul>
@@ -156,8 +160,7 @@
       <div class="callout">
         <p class="eyebrow">A materials lesson</p>
         <p>
-          Several printed parts warped after being left in a car in the Davis sun. PLA's glass
-          transition starts around 55–60 °C, and a parked car easily exceeds that. It was a useful
+          Several printed parts warped after being left outside while drying paint in the Davis sun. It was a useful
           reminder that material selection has to account for the environment a part sits in, not
           just the loads it carries.
         </p>
@@ -183,28 +186,28 @@
           <img src="../assets/img/flashback/03-ui.jpg"
                alt="The booth's touchscreen showing the live camera feed, mode selector and session counter"
                loading="lazy" width="991" height="1280">
-          <figcaption>The Tkinter touchscreen UI I built — live preview, mode selector, session and
+          <figcaption>The Tkinter touchscreen UI I built with live preview, mode selector, session and
             total counters — with the four tactile control buttons either side.</figcaption>
         </figure>
         <figure>
           <img src="../assets/img/flashback/04-cad-assembly.jpg"
                alt="SolidWorks render of the full booth assembly on its rotating base"
                loading="lazy" width="476" height="512">
-          <figcaption>The SolidWorks assembly: chassis, mast, camera head, and the rotating base
+          <figcaption>The SolidWorks assembly. Pictured chassis, mast, camera head, and the rotating base
             that carries the chassis weight on a bearing rather than the servo shaft.</figcaption>
         </figure>
         <figure>
           <img src="../assets/img/flashback/05-cad-chassis.jpg"
                alt="SolidWorks render of the chassis interior showing internal mounts and routing"
                loading="lazy" width="509" height="512">
-          <figcaption>Chassis interior — the mounts and ledges that locate the Pi, battery, buck
+          <figcaption>Chassis interior. Pictured: the mounts and ledges that locate the Pi, battery, buck
             converters and printer, and the paths the wiring runs along.</figcaption>
         </figure>
         <figure>
           <img src="../assets/img/flashback/06-cad-camera-head.jpg"
                alt="SolidWorks render of the camera head and ring light housing"
                loading="lazy" width="491" height="512">
-          <figcaption>The camera head: Camera Module 2 behind the 24-bit ring light, mounted to the
+          <figcaption>The camera head: Pi camera Module 2 behind the 24-bit ring light, mounted to the
             mast.</figcaption>
         </figure>
       </div>
@@ -216,7 +219,7 @@
       <h2>What I'd change</h2>
       <p>
         <strong>Shrink the rotating section.</strong> We rotated more mass than we needed to, which
-        raised the inertia the servo had to accelerate and decelerate — that's what forced the long
+        raised the inertia the servo had to accelerate and decelerate. That's what forced the long
         settle times that fought against image sharpness. A smaller rotating assembly with the
         heavy components moved to the stationary base would let the sweep run faster and stitch
         more reliably at the same time, instead of trading one against the other.
@@ -269,7 +272,7 @@
     </div>
   </section>
 
-  <section>
+  <section>x
     <div class="wrap">
       <div class="pager">
         <a href="nightstand-hub.html">
