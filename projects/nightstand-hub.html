@@ -39,14 +39,14 @@
     <p class="eyebrow">Designed, built, and programmed alone · Aug 2026 – present</p>
     <h1>Smart Nightstand Hub</h1>
     <p class="lede">
-      A bedside display for weather, calendar events, live bus times, and an alarm — with no apps
+      A bedside display for weather, calendar events, live bus times, and an alarm, with no apps
       and no notifications to pull me back into my phone. Designed, printed, wired, and flashed
       from scratch for $24.79 in parts.
     </p>
 
     <dl class="meta">
       <div><dt>My role</dt><dd>Everything — solo build</dd></div>
-      <div><dt>Timeline</dt><dd>Aug 2026 – present</dd></div>
+      <div><dt>Timeline</dt><dd>Aug 2026 – Sep 2026</dd></div>
       <div><dt>Enclosure</dt><dd>11 × 8 × 16 cm, three parts</dd></div>
       <div><dt>Parts cost</dt><dd>$24.79</dd></div>
       <div><dt>Tools</dt><dd>SolidWorks · GD&amp;T · FDM 3D printing · ESP32 · C++</dd></div>
@@ -83,24 +83,24 @@
 
       <h3>Enclosure design</h3>
       <ul>
-        <li><strong>Designed a compact three-part enclosure</strong> in SolidWorks — 11 × 8 × 16 cm —
+        <li><strong>Designed a compact three-part enclosure</strong> in SolidWorks, 11 × 8 × 16 cm,
           to house two displays, an ESP32, a speaker, an audio amplifier, and an environmental
           sensor, sized specifically to fit the window sill it lives on.</li>
-        <li><strong>Dimensioned every component with calipers</strong> and designed the housing
+        <li><strong>Dimensioned every component with calipers and micrometers</strong> and designed the housing
           around the real measurements rather than datasheet nominals.</li>
         <li><strong>Made the assembly adhesive-free</strong> using press fits, internal ledges, and
           locating pegs. A snug-fitting roof locks a sliding back panel in place, so the whole thing
           comes apart for service without cutting glue.</li>
         <li><strong>Reached a working fit in two print iterations</strong> by applying design for
-          manufacturability and tolerancing — widening openings where tree supports couldn't be
-          removed safely, and accounting for the ±0.2 mm or so an FDM printer actually holds.</li>
+          manufacturability and tolerancing, widening openings where tree supports couldn't be
+          removed safely, rearranging the design for 3d printing for less use of trees, and accounting for the ±0.2 mm or so an FDM printer actually holds.</li>
       </ul>
 
       <h3>Thermal &amp; packaging decisions</h3>
       <ul>
         <li><strong>Thermally isolated the temperature sensor</strong> from the heat-generating
           electronics using a tapered top and a rear-panel airflow path. A sensor sitting next to a
-          warm regulator reports the regulator's temperature, not the room's — this was the
+          warm regulator reports the regulator's temperature, not the room's, this was the
           difference between a reading that means something and a reading that doesn't.</li>
         <li>Added ventilation, a USB-C port opening, and cutouts for both screens and the speaker,
           positioned so the wiring inside could actually reach them.</li>
@@ -112,7 +112,7 @@
           both displays, and the audio amplifier.</li>
         <li><strong>Traced a full display failure to a mis-held GPIO pin.</strong> The boot state of
           that pin was holding a line low. I found it with pull-up/pull-down testing and a
-          multimeter, then rewired each display and the sensor onto a dedicated bus — which also
+          multimeter, then rewired each display and the sensor onto a dedicated bus, which also
           cleared a recurring intermittent connection fault.</li>
       </ul>
 
@@ -121,8 +121,8 @@
         <li>Developed the <strong>C++ firmware</strong> with AI-assisted tools (Claude Code),
           integrating weather, calendar (iCal), and transit APIs into a two-screen interface with
           an alarm.</li>
-        <li><strong>Validated each subsystem on the hardware</strong> — displays, sensor, audio,
-          network, alarm — and debugged the wiring faults that testing exposed. It's been running as
+        <li><strong>Validated each subsystem on the hardware</strong>, displays, sensor, audio,
+          network, alarm, and debugged the wiring faults that testing exposed. It's been running as
           my daily alarm since.</li>
       </ul>
 
@@ -131,7 +131,7 @@
         <p>
           I used Claude Code to write the firmware, and I'm specific about what that means: my job
           was the hardware. I wired and tested each subsystem, reported what I actually observed,
-          and tracked down the physical faults — including a pin the board was holding low, which no
+          and tracked down the physical faults, including a pin the board was holding low, which no
           amount of code review would have found. I can walk through what the firmware does.
         </p>
       </div>
@@ -200,8 +200,8 @@
       <h2>What I'd change</h2>
       <p>
         <strong>Fewer cables.</strong> The inside is messier than I want because I picked parts with
-        long pre-terminated leads. Higher-quality modules with fewer connections — or a small custom
-        PCB to replace the point-to-point wiring — would clean up the internal volume and remove
+        long pre-terminated leads. Higher-quality modules with fewer connections, or a small custom
+        PCB to replace the point-to-point wiring, would clean up the internal volume and remove
         most of the intermittent-connection risk at the source instead of working around it.
       </p>
     </div>
