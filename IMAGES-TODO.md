@@ -68,6 +68,4 @@ view, a showdown, or the two laptops playing each other, say so and the gallery 
 - [x] **`assets/img/og-card.png`** — 1200×630 — done. The link-preview card for LinkedIn and
       iMessage. Every page points at it for now; once project photos land, each project page can
       point at its own hero image instead.
-- [ ] **`assets/resume.pdf`** — your résumé export. Two fixes first: replace the
-      `github.com/jake` placeholder with this site's URL, and remove "EECS second-in-command"
-      so the wording matches the site.
+- [x] **`assets/resume.pdf`** — installed. Portfolio URL and split Cogwell dates are in.
