@@ -36,16 +36,16 @@ converters) and one of the bearing base. The CAD renders stand in for both.
 
 ## Smart Nightstand Hub — done
 
-- [x] `assets/img/nightstand/01-hero.jpg` — the finished purple unit, front
-- [x] `assets/img/nightstand/02-rear.jpg` — sliding panel, vents, USB-C cutout
-- [x] `assets/img/nightstand/03-print-front.jpg` — earlier white print, front
-- [x] `assets/img/nightstand/04-print-angled.jpg` — earlier white print, tapered top
-- [x] `assets/img/nightstand/05-bench.jpg` — breadboard bring-up, both screens live
-- [x] `assets/img/nightstand/card.jpg` — 16:10 crop for the home-page card
+- [x] `01-hero.jpg` — the finished unit, front
+- [x] `02-cad-front.jpg` — SolidWorks model, front: locating pegs and ledges
+- [x] `03-cad-rear.jpg` — SolidWorks model, rear: tapered roof and back-panel channel
+- [x] `04-print.jpg` — earlier white print
+- [x] `05-rear.jpg` — printed rear: sliding panel, vents, USB-C
+- [x] `06-bench.jpg` — breadboard bring-up, both screens live
+- [x] `card.jpg` — 16:10 crop for the home-page card
 
-Still worth adding: a **SolidWorks screenshot** of the assembly, and the **GD&T drawing sheet** —
-the page now describes both but shows neither. The GD&T figure was removed rather than left as a
-placeholder. Crop or hide the stray ±0.01 dimensions before posting any CAD screenshot.
+Only outstanding item: the **GD&T drawing sheet**. The page describes the drawings but shows none.
+Crop or hide the stray ±0.01 dimensions before posting it.
 
 ## Fold or Roll — done
 
