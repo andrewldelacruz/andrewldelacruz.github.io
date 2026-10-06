@@ -361,6 +361,9 @@ figcaption {
 .gallery figure.tall img { aspect-ratio: 3/4; }
 .gallery figure.wide { grid-column: 1 / -1; }
 .gallery figure.wide img { aspect-ratio: 16/9; }
+/* A drawing must not be cropped — the callouts live at the edges. Show it
+   whole rather than filling a fixed box. */
+.gallery figure.whole img { aspect-ratio: auto; object-fit: contain; background: transparent; }
 
 /* --- Numbers table ------------------------------------------------------- */
 .numbers { width: 100%; border-collapse: collapse; font-size: .95rem; }

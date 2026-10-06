@@ -44,8 +44,10 @@ converters) and one of the bearing base. The CAD renders stand in for both.
 - [x] `06-bench.jpg` — breadboard bring-up, both screens live
 - [x] `card.jpg` — 16:10 crop for the home-page card
 
-Only outstanding item: the **GD&T drawing sheet**. The page describes the drawings but shows none.
-Crop or hide the stray ±0.01 dimensions before posting it.
+- [x] `07-gdt.jpg` — the model annotated with GD&T, shown uncropped
+
+Nothing outstanding for this project. A transit screenshot would be the one addition worth making:
+the page lists transit among the integrations and no image shows bus times.
 
 ## Fold or Roll — done
 
