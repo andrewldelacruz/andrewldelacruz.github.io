@@ -12,7 +12,7 @@
 <meta property="og:description" content="Adhesive-free press-fit enclosure designed around the boards inside it. ESP32, two displays, thermally isolated sensor, $24.79 in parts, working fit in two print iterations.">
 <meta property="og:image" content="https://andrewldelacruz.github.io/assets/img/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../css/style.css?v=10">
+<link rel="stylesheet" href="../css/style.css?v=11">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -52,12 +52,12 @@
       <div><dt>Tools</dt><dd>SolidWorks · GD&amp;T · FDM 3D printing · ESP32 · C++</dd></div>
     </dl>
 
-    <figure class="hero-figure">
+    <figure class="hero-figure portrait">
       <img src="../assets/img/nightstand/01-hero.jpg"
-           data-placeholder="../assets/img/nightstand/01-hero.svg"
-           alt="The Smart Nightstand Hub on a window sill with both displays lit"
-           width="1600" height="900">
-      <figcaption>In daily use on the window sill it was sized to fit.</figcaption>
+           alt="The finished Smart Nightstand Hub, a purple 3D-printed enclosure with two display openings"
+           width="1100" height="1467">
+      <figcaption>The finished hub: a three-part printed enclosure with the small status display
+        above and the touchscreen below.</figcaption>
     </figure>
   </div>
 
@@ -145,43 +145,33 @@
         <h2>Design and build</h2>
       </div>
       <div class="gallery">
-        <figure>
-          <img src="../assets/img/nightstand/02-cad-assembly.jpg"
-               data-placeholder="../assets/img/nightstand/02-cad-assembly.svg"
-               alt="SolidWorks model of the three-part enclosure"
-               loading="lazy" width="1200" height="900">
-          <figcaption>The SolidWorks model. Three parts: main body, roof, and sliding back panel.</figcaption>
+        <figure class="tall">
+          <img src="../assets/img/nightstand/02-rear.jpg"
+               alt="Rear of the enclosure showing the sliding back panel, vent openings and USB-C cutout"
+               loading="lazy" width="1100" height="1467">
+          <figcaption>The back: the sliding panel the roof locks in place, the rear-panel openings
+            that carry the airflow path, and the USB-C cutout.</figcaption>
         </figure>
-        <figure>
-          <img src="../assets/img/nightstand/03-internals.jpg"
-               data-placeholder="../assets/img/nightstand/03-internals.svg"
-               alt="Inside the enclosure showing the ESP32, wiring, and buck converter"
-               loading="lazy" width="1200" height="900">
-          <figcaption>Inside: ESP32, buck converter, speaker and amplifier, and the sensor placed
-            away from the heat sources.</figcaption>
+        <figure class="tall">
+          <img src="../assets/img/nightstand/03-print-front.jpg"
+               alt="An earlier white print of the enclosure, front view, showing the roof seam"
+               loading="lazy" width="1100" height="1467">
+          <figcaption>An earlier print in white. The seam under the roof is the press fit that locks
+            the sliding panel — no adhesive anywhere in the assembly.</figcaption>
         </figure>
-        <figure>
-          <img src="../assets/img/nightstand/04-press-fit.jpg"
-               data-placeholder="../assets/img/nightstand/04-press-fit.svg"
-               alt="Close-up of the press-fit ledges and locating pegs"
-               loading="lazy" width="1200" height="900">
-          <figcaption>Press fits, ledges, and locating pegs — no adhesive anywhere in the assembly.</figcaption>
+        <figure class="tall">
+          <img src="../assets/img/nightstand/04-print-angled.jpg"
+               alt="The earlier white print at an angle, showing the tapered top and side cutouts"
+               loading="lazy" width="1100" height="1467">
+          <figcaption>The tapered top, which carries heat away from the sensor, and the side
+            openings cut for ventilation.</figcaption>
         </figure>
-        <figure>
-          <img src="../assets/img/nightstand/05-print-iterations.jpg"
-               data-placeholder="../assets/img/nightstand/05-print-iterations.svg"
-               alt="First and second print iterations side by side"
-               loading="lazy" width="1200" height="900">
-          <figcaption>Iteration one beside iteration two. The changes were mostly clearances and
-            openings where supports couldn't be removed cleanly.</figcaption>
-        </figure>
-        <figure class="wide">
-          <img src="../assets/img/nightstand/06-gdt-drawing.jpg"
-               data-placeholder="../assets/img/nightstand/06-gdt-drawing.svg"
-               alt="GD&amp;T drawing of the enclosure showing datums and geometric controls"
-               loading="lazy" width="1600" height="900">
-          <figcaption>The GD&amp;T drawings — datums and geometric controls on the fits between
-            the roof, sliding panel, and main body.</figcaption>
+        <figure class="tall">
+          <img src="../assets/img/nightstand/05-bench.jpg"
+               alt="Both displays running on a breadboard, showing live weather data"
+               loading="lazy" width="1100" height="1467">
+          <figcaption>Bench bring-up: both displays running live weather data before the sensor was
+            wired in, which is where the display and bus faults were found.</figcaption>
         </figure>
       </div>
     </div>

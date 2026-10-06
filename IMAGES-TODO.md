@@ -34,25 +34,18 @@ Delete the matching `.svg` once a real photo is in place (optional — it just s
 Still missing, if you ever want them: a photo of the real chassis internals (wiring, Pi, buck
 converters) and one of the bearing base. The CAD renders stand in for both.
 
-## Smart Nightstand Hub
+## Smart Nightstand Hub — done
 
-- [ ] **`assets/img/nightstand/01-hero.jpg`** — 1600×900
-      The hub on the window sill, both displays lit and legible. LinkedIn preview image.
+- [x] `assets/img/nightstand/01-hero.jpg` — the finished purple unit, front
+- [x] `assets/img/nightstand/02-rear.jpg` — sliding panel, vents, USB-C cutout
+- [x] `assets/img/nightstand/03-print-front.jpg` — earlier white print, front
+- [x] `assets/img/nightstand/04-print-angled.jpg` — earlier white print, tapered top
+- [x] `assets/img/nightstand/05-bench.jpg` — breadboard bring-up, both screens live
+- [x] `assets/img/nightstand/card.jpg` — 16:10 crop for the home-page card
 
-- [ ] **`assets/img/nightstand/02-cad-assembly.jpg`** — 1200×900
-      SolidWorks screenshot of the three-part enclosure. CROP OR HIDE the stray plus/minus 0.01 dimensions.
-
-- [ ] **`assets/img/nightstand/03-internals.jpg`** — 1200×900
-      Back panel off: ESP32, buck converter, speaker, amp, and the sensor away from heat sources.
-
-- [ ] **`assets/img/nightstand/04-press-fit.jpg`** — 1200×900
-      Close-up of the ledges, locating pegs, or roof-to-panel fit. Macro shot or CAD detail view.
-
-- [ ] **`assets/img/nightstand/05-print-iterations.jpg`** — 1200×900
-      Print 1 beside print 2 so the clearance changes are visible.
-
-- [ ] **`assets/img/nightstand/06-gdt-drawing.jpg`** — 1600×900
-      The GD&T drawing sheet once finished. Replace the 'in progress' wording on the page when you add it.
+Still worth adding: a **SolidWorks screenshot** of the assembly, and the **GD&T drawing sheet** —
+the page now describes both but shows neither. The GD&T figure was removed rather than left as a
+placeholder. Crop or hide the stray ±0.01 dimensions before posting any CAD screenshot.
 
 ## Fold or Roll — done
 

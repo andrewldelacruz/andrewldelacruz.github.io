@@ -346,6 +346,14 @@ figcaption {
    screenshot is 4:3 — and cropping them to 16:9 would cut off the parts that
    matter. Show those at their own aspect instead. */
 .hero-figure.natural img { aspect-ratio: auto; object-fit: contain; }
+/* A portrait hero at full container width is over 1400px tall and swamps the
+   page, so cap it and centre it instead. */
+.hero-figure.portrait img {
+  aspect-ratio: auto; object-fit: contain;
+  width: auto; max-width: min(100%, 420px); max-height: 72vh;
+  margin-inline: auto;
+}
+.hero-figure.portrait figcaption { text-align: center; margin-inline: auto; }
 
 .gallery { display: grid; gap: 1.75rem; }
 @media (min-width: 720px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
