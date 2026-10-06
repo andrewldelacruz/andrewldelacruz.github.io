@@ -395,6 +395,35 @@ figcaption {
 }
 .lightbox-close:hover { background: rgba(255,255,255,.22); }
 
+/* --- Project status ------------------------------------------------------
+   A single line at the foot of each project saying whether the work is
+   finished or still moving, so a reader never has to infer it from dates. */
+.status {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .75rem;
+  padding: 1rem 1.25rem; border-radius: var(--r);
+  border: 1px solid var(--border); background: var(--bg-raised);
+}
+.status-label {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font: 650 .72rem/1 var(--font); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-soft); white-space: nowrap;
+}
+.status-label::before {
+  content: ""; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--border-str); flex: none;
+}
+.status p { margin: 0; max-width: none; font-size: .93rem; color: var(--text-soft); }
+
+.status-done .status-label { color: var(--text); }
+.status-done .status-label::before { background: #4f9d6b; }
+
+.status-active { border-color: color-mix(in srgb, var(--accent) 28%, transparent); background: var(--accent-bg); }
+.status-active .status-label { color: var(--accent); }
+.status-active .status-label::before {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
 /* --- Next / prev project ------------------------------------------------- */
 .pager { display: grid; gap: 1rem; }
 @media (min-width: 620px) { .pager { grid-template-columns: repeat(2, 1fr); } }
