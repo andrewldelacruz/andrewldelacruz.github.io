@@ -68,7 +68,7 @@
     <div class="wrap">
       <h2>The game</h2>
       <p>
-        Each player rolls five dice and bets poker-style — Raise, Stand, or Fold. The twist is a
+        Each player rolls five dice and bets poker-style: Raise, Stand, or Fold. The twist is a
         random <strong>Sabotage Die</strong> rolled each round: any of your dice matching it become
         zeros. So a strong-looking hand can be gutted by one unlucky roll, which is what makes the
         betting interesting.
@@ -88,12 +88,12 @@
       <h3>Networking &amp; synchronization</h3>
       <ul>
         <li><strong>Used ThingSpeak as a shared database.</strong> It's an IoT cloud platform meant
-          for sensor telemetry, not game state — but it exposes a REST API that both computers can
+          for sensor telemetry, not game state. But it exposes a REST API that both computers can
           read from and write to, which is all a turn-based game actually needs. No server to host,
           nothing to pay for.</li>
         <li><strong>Built timer-based polling</strong> at roughly one update per second, so balances,
           the pot, whose turn it is, and the action history stay consistent on both screens.</li>
-        <li><strong>Added turn gating and a two-stage connection process</strong> — players can only
+        <li><strong>Added turn gating and a two-stage connection process.</strong> Players can only
           act on their own turn, and Player 2 joins automatically once Player 1 starts the game.</li>
         <li><strong>Designed a compressed JSON data format</strong> to fit inside the platform's
           field size limits while keeping each player's dice on their own machine. The opponent's
@@ -116,7 +116,7 @@
           Syncing two systems turned out to be less about the network and more about
           <strong>deciding who owns which piece of data, and when it's allowed to change.</strong>
           Once that was settled, the polling loop was straightforward. That's the same question
-          behind remote sensor monitoring and test-rig data acquisition — which is where I expect to
+          behind remote sensor monitoring and test-rig data acquisition, which is where I expect to
           run into it again.
         </p>
       </div>
@@ -127,7 +127,7 @@
     <div class="wrap">
       <h2>What I'd change</h2>
       <p>
-        Polling at 1 Hz is the honest weak point — it's simple and it worked, but it means up to a
+        Polling at 1 Hz is the honest weak point. It's simple and it worked, but it means up to a
         second of lag and a steady stream of requests whether anything changed or not. A real
         implementation would push updates instead of polling for them, and would need a proper
         answer for conflicting writes rather than relying on turn gating to make conflicts
