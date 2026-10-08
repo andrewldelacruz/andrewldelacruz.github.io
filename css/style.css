@@ -474,6 +474,24 @@ figcaption {
   .card, .role, .meta > div, .skills > div { break-inside: avoid; }
   a { color: #000; text-decoration: underline; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
-  figure img { max-height: 3in; object-fit: contain; }
+
+  /* Figures, tables and spec strips must not split across a page break. */
+  figure, .gallery figure, .table-scroll, .numbers tr, .status { break-inside: avoid; }
+  figure img, .gallery figure img, .gallery figure.tall img {
+    max-height: 3.2in; width: auto; object-fit: contain; aspect-ratio: auto;
+  }
+  .hero-figure.upright img, .hero-figure.natural img { max-height: 3.4in; width: auto; }
+  .gallery { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .gallery figure.wide { grid-column: 1 / -1; }
+  figcaption { font-size: 8.5pt; }
+
+  /* Scope badge and status read as plain labels on paper. */
+  .tag, .status-label { border: 1px solid #999; background: #fff; color: #000; }
+  .status { border: 1px solid #999; }
+  .status-label::before { display: none; }
+
+  /* Each project page starts on a fresh sheet when several are printed. */
+  .project-head { break-before: auto; }
+  h2, h3 { break-after: avoid; }
 }
 
